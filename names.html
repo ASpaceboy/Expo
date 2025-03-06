@@ -18,38 +18,5 @@
     <!-- The table will be populated dynamically -->
 </table>
 
-<script>
-// Function to load data from localStorage and display it in a table
-function loadTable() {
-    const entryCount = localStorage.getItem("entryCount");
-    
-    if (entryCount) {
-        let tableContent = ''; // To hold the table rows and cells
-
-        for (let i = 1; i <= entryCount; i++) {
-            // Retrieve saved values from localStorage
-            const name = localStorage.getItem(`name${i}`);
-            const bgColor = localStorage.getItem(`color${i}`);
-            const font = localStorage.getItem(`font${i}`);
-
-            // Add a new table row with the appropriate cell
-            tableContent += `
-                <tr>
-                    <td style="background-color: ${bgColor}; font-family: ${font};">
-                        ${name}
-                    </td>
-                </tr>
-            `;
-        }
-
-        // Add the content to the table with the correct ID 'dataTable'
-        document.getElementById('dataTable').innerHTML = tableContent;
-    }
-}
-
-// Call the function to load the table when the page loads
-window.onload = loadTable;
-</script>
-
 </body>
 </html>
