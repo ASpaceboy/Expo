@@ -34,6 +34,34 @@
     <button onclick="applyChanges()">Apply Changes</button>
 </div>
 
-<script>localStorage.setItem("mytime", Date.now());</script>
+<script>
+// Function to save changes to localStorage
+function applyChanges() {
+    // Get values from the form
+    const name = document.getElementById("name").value;
+    const bgColor = document.getElementById("bgColor").value;
+    const fontSelect = document.getElementById("fontSelect").value;
+
+    // Check if name, color, and font are provided
+    if (name && bgColor && fontSelect) {
+        // Get the number of current entries (to create unique keys)
+        const entryCount = localStorage.getItem("entryCount") || 0;
+        
+        // Save the new values in localStorage with incremental keys
+        localStorage.setItem(`name${parseInt(entryCount) + 1}`, name);
+        localStorage.setItem(`color${parseInt(entryCount) + 1}`, bgColor);
+        localStorage.setItem(`font${parseInt(entryCount) + 1}`, fontSelect);
+
+        // Update the entry count in localStorage
+        localStorage.setItem("entryCount", parseInt(entryCount) + 1);
+
+        // Optionally, you could update the page with the new settings (e.g., apply it immediately)
+        document.body.style.backgroundColor = bgColor;
+        document.body.style.fontFamily = fontSelect;
+    } else {
+        alert("Please fill in all fields.");
+    }
+}
+</script>
 </body>
 </html>
