@@ -54,9 +54,6 @@ function applyChanges() {
         // Update the entry count in localStorage
         localStorage.setItem("entryCount", parseInt(entryCount) + 1);
 
-        // Optionally, you could update the page with the new settings (e.g., apply it immediately)
-        document.body.style.backgroundColor = bgColor;
-        document.body.style.fontFamily = fontSelect;
     } else {
         alert("Please fill in all fields.");
     }
