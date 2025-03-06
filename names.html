@@ -14,12 +14,52 @@
     </a>
 </div>
 
-
-<table>
-    <tr>
-        
-    </tr>
+<table id="dataTable">
+    <!-- The table will be populated dynamically -->
 </table>
+
+<script>
+// Function to load data from localStorage and display it in a table
+function loadTable() {
+    const entryCount = localStorage.getItem("entryCount");
+    
+    if (entryCount) {
+        for (let i = 1; i <= entryCount; i++) {
+            // Retrieve saved values from localStorage
+            const name = localStorage.getItem(`name${i}`);
+            const bgColor = localStorage.getItem(`color${i}`);
+            const font = localStorage.getItem(`font${i}`);
+
+            // Create a new row and set the styles
+            const table = document.getElementById("dataTable");
+            const row = table.insertRow();
+
+            // Create the cells for Name, Background Color, and Font
+            const nameCell = row.insertCell(0);
+            const colorCell = row.insertCell(1);
+            const fontCell = row.insertCell(2);
+
+            // Insert the content into the cells
+            nameCell.textContent = name;
+            colorCell.textContent = bgColor;
+            fontCell.textContent = font;
+
+            // Apply the background color and font style
+            row.style.backgroundColor = bgColor;
+            row.style.fontFamily = font;
+        }
+    } else {
+        const table = document.getElementById("dataTable");
+        const row = table.insertRow();
+        const cell = row.insertCell(0);
+        cell.colSpan = 3;
+        cell.textContent = "No entries available.";
+    }
+}
+
+// Call the function to load the table when the page loads
+window.onload = loadTable;
+</script>
 
 </body>
 </html>
