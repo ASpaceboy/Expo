@@ -14,7 +14,6 @@
     </a>
 </div>
 
-
 <!-- Input Form for Customization -->
 <div class="controls">
     <label for="name">Enter Your Name: </label>
@@ -62,6 +61,36 @@ function applyChanges() {
         alert("Please fill in all fields.");
     }
 }
+
+// Function to load stored preferences from localStorage
+window.onload = function() {
+    // Check if there are any entries in localStorage
+    const entryCount = localStorage.getItem("entryCount");
+
+    if (entryCount > 0) {
+        // Apply the most recent entry (entryCount-1) to the page
+        const latestEntryIndex = entryCount; // Use the last saved entry
+
+        // Retrieve the stored settings
+        const savedName = localStorage.getItem(`name${latestEntryIndex}`);
+        const savedColor = localStorage.getItem(`color${latestEntryIndex}`);
+        const savedFont = localStorage.getItem(`font${latestEntryIndex}`);
+
+        // Apply the stored settings to the page
+        if (savedName) {
+            document.getElementById("name").value = savedName; // Optionally, display the name in the input field
+        }
+        if (savedColor) {
+            document.body.style.backgroundColor = savedColor; // Apply background color
+            document.getElementById("bgColor").value = savedColor; // Optionally, set the color picker to saved value
+        }
+        if (savedFont) {
+            document.body.style.fontFamily = savedFont; // Apply font
+            document.getElementById("fontSelect").value = savedFont; // Optionally, set the dropdown to saved font
+        }
+    }
+};
 </script>
+
 </body>
 </html>
