@@ -10,7 +10,7 @@
 
 <div class="header">
     <a href="home.html">
-        <img src="Logo.png" alt="Logo" class="logo-img">
+        <img src="images/Logo.png" alt="Logo" class="logo-img">
     </a>
 </div>
 
@@ -24,37 +24,27 @@ function loadTable() {
     const entryCount = localStorage.getItem("entryCount");
     
     if (entryCount) {
-        for (let i = 1; i <= entryCount; i++) {
-            // Retrieve saved values from localStorage
-            const name = localStorage.getItem(`name${i}`);
-            const bgColor = localStorage.getItem(`color${i}`);
-            const font = localStorage.getItem(`font${i}`);
+    let tableContent = ''; // To hold the table rows and cells
 
-            // Create a new row and set the styles
-            const table = document.getElementById("dataTable");
-            const row = table.insertRow();
+    for (let i = 1; i <= entryCount; i++) {
+        // Retrieve saved values from localStorage
+        const name = localStorage.getItem(`name${i}`);
+        const bgColor = localStorage.getItem(`color${i}`);
+        const font = localStorage.getItem(`font${i}`);
 
-            // Create the cells for Name, Background Color, and Font
-            const nameCell = row.insertCell(0);
-            const colorCell = row.insertCell(1);
-            const fontCell = row.insertCell(2);
-
-            // Insert the content into the cells
-            nameCell.textContent = name;
-            colorCell.textContent = bgColor;
-            fontCell.textContent = font;
-
-            // Apply the background color and font style
-            row.style.backgroundColor = bgColor;
-            row.style.fontFamily = font;
-        }
-    } else {
-        const table = document.getElementById("dataTable");
-        const row = table.insertRow();
-        const cell = row.insertCell(0);
-        cell.colSpan = 3;
-        cell.textContent = "No entries available.";
+        // Add a new table row with the appropriate cell
+        tableContent += `
+            <tr>
+                <td style="background-color: ${bgColor}; font-family: ${font};">
+                    ${name}
+                </td>
+            </tr>
+        `;
     }
+
+    // Add the content to the table
+    document.getElementById('myTable').innerHTML = tableContent;
+}
 }
 
 // Call the function to load the table when the page loads
