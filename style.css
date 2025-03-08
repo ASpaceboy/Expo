@@ -1,181 +1,239 @@
-body { 
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    position: relative;
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-#video {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: calc(150% - 0px);
-    object-fit: cover;
-    z-index: -1;
+/* Body */
+body {
+  background-image: url('images/brick.png');
+  color: #2b2b2b;
 }
 
-.header {
-    overflow: hidden;
-    background-color: #ffff;
-    padding: 10px 10px;
-    border-bottom: 1px #4546ff solid;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-    z-index: 1;
-    position: relative;
+/* Header */
+header {
+  background-image: linear-gradient(to right, #124412, #237723);
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #FF0000 solid 2px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
-.header a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px; 
-    line-height: 25px;
-    border-radius: 4px;
+header nav ul {
+  list-style: none;
+  display: flex;
 }
 
-.cell4 {
-    background-color: #A02C2D;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    border-color: aliceblue;
+header nav ul li {
+  margin: 0 10px;
+}
+
+header nav ul li a {
+  display: inline-block;
+  font-family: 'Times New Roman';
+  text-decoration: none;
+  color: khaki;
+  font-weight: bold;
+}
+
+header nav ul li a:hover {
+  background: linear-gradient(to right,#f22a25, #fb7603, #7b8800, pink, #f02705, violet);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.2);
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+.char {
+  width: 160px;
+  height: auto;
+}
+
+.char img {
+  width: 160%;
+  height: auto;
+}
+
+/* Main content and article styling */
+main {
+  padding: 20px; /* Add padding around the main content */
+}
+
+section#about {
+  border: solid 1px goldenrod;
+  border-top: 5px solid goldenrod;
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto; /* Center the section with a margin */
+  max-width: 800px; /* Max width of the article */
+  border-radius: 20px; /* Rounded corners for the section */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.c1 {
+  display: flex;
+  justify-content: center;
+  color: #7b8800;
+  font-weight: bolder;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.c2 {
+  display: flex;
+  justify-content: center;
+  color: #7b8800;
+  font-weight: bolder;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.c3 {
+  display: flex;
+  justify-content: center;
+  color: #7b8800;
+  font-weight: bolder;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.c4 {
+  display: flex;
+  justify-content: center;
+  color: #7b8800;
+  font-weight: bolder;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.c1 {
+  display: flex;
+  justify-content: center;
+  color: #7b8800;
+  font-weight: bolder;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
-h1 {
-    text-align: center;
+p {
+  line-height: 1.6; /* Improve readability by increasing line height */
+  color: #555; /* Slightly lighter text color for paragraphs */
 }
 
-.logo-img {
-    display: flex;
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  header nav ul {
+    flex-direction: column; /* Stack navigation items vertically on small screens */
     align-items: center;
-    height: 40px;
-    width: auto;
-}
-
-table {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-}
-
-
-/* Base emoji face */
-.emoji {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-    border-radius: 50%; /* Makes the face round */
-    position: relative;
-    margin: 0 auto; /* Center the emoji */
   }
-  
-  /* Left eye */
-  .eye {
-    width: 15px;
-    height: 15px;
-    background-color: black;
-    border-radius: 50%; /* Makes the eye round */
-    position: absolute;
-    top: 25px;
+
+  header nav ul li {
+    margin: 10px 0; /* More space between items on small screens */
   }
-  
-  /* Position the left eye */
-  .left {
-    left: 20px;
+
+  main {
+    padding: 10px; /* Less padding on small screens */
   }
-  
-  /* Position the right eye */
-  .right {
-    right: 20px;
+
+  section#about {
+    padding: 15px; /* Less padding in the article */
   }
-  
-  /* Smile */
-  .smile {
-    width: 50px;
-    height: 25px;
-    background-color: transparent;
-    border: 5px solid black;
-    border-radius: 25px;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%); /* Centers the smile */
-  }
-  
-
-.cell {
-    font-weight: bolder;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 5px;
-    margin-right: 5px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 
-.cell :hover {
-    transform: scale(1.5);
+/* Hero Section */
+.hero {
+  background-image: linear-gradient(to right, grey, grey);
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 100px 0;
 }
 
-.cell1 {
-    background-color: red;
-    color: white;
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.cell2 {
-    background-color: #4546ff;
-    color: white;
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
 }
 
-td {
-    display: flex;
-    border: .5px solid #4546ff;
-    justify-content: center;
-    width: fit-content;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 1.2em;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+.cta-button {
+  padding: 15px 30px;
+  background-color: #FF0000; /* Ruby Red for Dorothy's shoes */
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-tr {
-    display: flex;
-    justify-content: center;
+/* Characters Section */
+.characters {
+  border: solid 1px goldenrod;
+  border-top: 5px solid goldenrod;
+  border-radius: 20px;
+  padding: 50px 20px;
+  background-image: linear-gradient(to right, #ffe88c, #EECC40, #ffe88c, #EECC40);
+  text-align: center;
 }
 
-.controls {
-    text-align: center;
-    margin-top: 20px;
+.characters h2 {
+  font-size: 3rem;
+  margin-bottom: 40px;
 }
 
-label {
-    margin-right: 10px;
+.character {
+  display: inline-block;
+  width: 220px;
+  margin: 0 20px;
 }
 
-input, select {
-    margin-right: 15px;
+.character img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #4546ff;
-    color: white;
-    border: none;
-    cursor: pointer;
+.character h3 {
+  font-size: 1.8rem;
+  margin-top: 10px;
 }
 
-button:hover {
-    background-color: #333;
+/* Yellow Brick Road Section */
+.yellow-brick-road {
+  background-color: #FFEB3B; /* Yellow for the Yellow Brick Road */
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.yellow-road-button {
+  padding: 15px 30px;
+  background-color: #228B22; /* Emerald Green for the Land of Oz */
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Footer */
+footer {
+  background-color: #2b2b2b;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer p {
+  font-size: 1rem;
 }
